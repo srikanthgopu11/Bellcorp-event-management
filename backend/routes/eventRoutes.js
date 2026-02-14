@@ -42,10 +42,8 @@ router.get('/user/my-events', protect, async (req, res) => {
     try {
         const registrations = await Registration.find({ userId: req.user._id }).populate('eventId');
         
-        // Filter out registrations where the event was deleted (eventId is null)
         const validRegistrations = registrations.filter(reg => reg.eventId !== null);
         
-        // Return only the event details
         res.json(validRegistrations.map(r => r.eventId));
     } catch (error) {
         res.status(500).json({ message: "Server Error" });

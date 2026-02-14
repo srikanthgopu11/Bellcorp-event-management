@@ -12,8 +12,7 @@ const DiscoveryPage = () => {
         const fetchEvents = async () => {
             setLoading(true);
             try {
-                // Fetching events from backend with query parameters for Search and Category
-                const { data } = await axios.get(`http://localhost:5000/api/events?search=${search}&category=${category}`);
+                const { data } = await axios.get(`https://bellcorp-backend-xzxj.onrender.com/api/events?search=${search}&category=${category}`);
                 setEvents(data);
             } catch (error) {
                 console.error("Error fetching events:", error);
@@ -21,7 +20,7 @@ const DiscoveryPage = () => {
             setLoading(false);
         };
         fetchEvents();
-    }, [search, category]); // Re-run whenever search text or category changes
+    }, [search, category]);
 
     return (
         <div className="container">

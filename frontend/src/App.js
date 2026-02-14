@@ -1,11 +1,11 @@
-import './App.css'; // Add this at the top
+import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import DiscoveryPage from './pages/DiscoveryPage';
 import EventDetails from './pages/EventDetails';
 import Dashboard from './pages/Dashboard';
-import Login from './pages/Login'; // Create a simple login form using the logic from Phase 2
-import Register from './pages/Register'; // Create a simple register form
+import Login from './pages/Login'; 
+import Register from './pages/Register'; 
 import { AuthProvider } from './context/AuthContext';
 
 function App() {

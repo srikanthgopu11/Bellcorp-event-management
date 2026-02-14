@@ -13,7 +13,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('http://localhost:5000/api/auth/register', { name, email, password });
+            const { data } = await axios.post('https://bellcorp-backend-xzxj.onrender.com/api/auth/register', { name, email, password });
             login(data);
             alert("Account Created!");
             navigate('/');

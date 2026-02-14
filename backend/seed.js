@@ -24,7 +24,6 @@ const seedDB = async () => {
     try {
         await Event.deleteMany({});
         await Event.insertMany(events);
-        console.log("Database Seeded with 15 Future Events!");
         process.exit();
     } catch (err) {
         console.error(err);

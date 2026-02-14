@@ -10,7 +10,7 @@ const EventDetails = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/events/${id}`).then(res => setEvent(res.data));
+        axios.get(`https://bellcorp-backend-xzxj.onrender.com/api/events/${id}`).then(res => setEvent(res.data));
     }, [id]);
 
     const handleRegister = async () => {

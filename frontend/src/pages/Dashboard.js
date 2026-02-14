@@ -13,9 +13,8 @@ const Dashboard = () => {
             if (!user) return;
             try {
                 const config = { headers: { Authorization: `Bearer ${user.token}` } };
-                const { data } = await axios.get('http://localhost:5000/api/events/user/my-events', config);
+                const { data } = await axios.get('https://bellcorp-backend-xzxj.onrender.com/api/events/user/my-events', config);
                 
-                // FIX: Filter out any null entries that might come from deleted events
                 const validEvents = data.filter(event => event !== null);
                 setMyEvents(validEvents);
             } catch (err) {
@@ -26,7 +25,6 @@ const Dashboard = () => {
         fetchMyEvents();
     }, [user]);
 
-    // FIX: Added extra checks (e && e.date) to prevent the "Cannot read properties of null" error
     const upcoming = myEvents.filter(e => e && e.date && new Date(e.date) > new Date());
     const past = myEvents.filter(e => e && e.date && new Date(e.date) <= new Date());
 
@@ -72,7 +70,6 @@ const Dashboard = () => {
     );
 };
 
-// Sub-component for the Dashboard Card
 const DashboardCard = ({ event, status }) => (
     <div className="event-card">
         <img src={event.imageUrl || 'https://via.placeholder.com/300'} className="event-img" alt="event" />
