@@ -1,0 +1,13 @@
+# Dependency folders
+node_modules/
+
+# Environment variables (Sensitive Data)
+.env
+
+# Build folders
+client/build/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
